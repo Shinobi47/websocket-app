@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <script src="./app.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+				<table>
+					<tr>
+						<td><label for="connect">WebSocket connection:</label></td>
+					<tr>
+					<tr>
+						<td><label for="connect">Broker Endpoint:</label></td>
+						<td><input type="text" id="brokerEndpoint" class="form-control" placeholder="Broker Endpoint here..."></td>
+					<tr>
+					<tr>
+						<td><label for="connect">Subscribe channel / Return Endpoint:</label></td>
+						<td><input type="text" id="returnEndpoint" class="form-control" placeholder="Subscribe channel/return endpoint"></td>
+					<tr>
+					<tr>
+						<td>
+							<button id="connect" class="btn btn-default" type="submit">Connect</button>
+							<button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect</button>
+						</td>
+					<tr>
+				</table>
+            </form>
+        </div>
+		<hr class="hr" />
+        <div class="col-md-6">
+            <form class="form-inline">
+				<table>
+					<tr>
+						<td><label for="name">Message :</label></td>
+					<tr>
+					<tr>
+						<td><label for="connect">Destination Endpoint:</label></td>
+						<td><input type="text" id="destinationEndpoint" class="form-control" placeholder="Your destinationEndpoint here..."></td>
+					<tr>
+					<tr>
+						<td><label for="connect">Message content:</label></td>
+						<td><input type="text" id="msg" class="form-control" placeholder="Your message here..."></td>
+					<tr>
+					<tr>
+						<td>
+							<button id="send" class="btn btn-default" type="submit">Send</button>
+						</td>
+					<tr>
+				</table>
+            </form>
+        </div>
+		
+    </div>
+	<hr class="hr" />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Response:</th>
+                </tr>
+                </thead>
+                <tbody id="response">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
